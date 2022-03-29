@@ -46,7 +46,7 @@ while visitor_choice is False: # = True
 	#player_choice now equals TRUE -> It has a value.
 
 	if visitor_choice == "quit":
-	   print("Ypu chose to quit")
+	   print("You chose to quit")
 	   exit()
 
 	print("user chose: " + visitor_choice)
@@ -59,31 +59,31 @@ while visitor_choice is False: # = True
 	if tom_nook_choice == visitor_choice: 
 		print("tie")
 
-	elif tom_nook_choice == "rock":
-		if visitor_choice == "scissors":
+	elif tom_nook_choice == "rock island":
+		if visitor_choice == "scissors island":
 		   print("you lose a bells!")
 		   #verbose way
 		   #player_lives = player_lives - 1
 		   #simpliefied way
 		   visitor_bells -= 1
 		else:
-			print("you do not lose a bell")  
+			print("You WIN.You do not lose a bell")  
 			tom_nook_bells-= 1
 
-	elif tom_nook_choice == "paper":
-			if player_choice == "scissors":
-				 print("you do not lose a bell!")
+	elif tom_nook_choice == "paper island":
+			if visitor_choice == "scissors island":
+				 print("You WIN. You do not lose a bell!")
 				 tom_nook_bells-= 1
 			else:
 				 print("you lose a bell!")
 				 visitor_bells-= 1  
 
-	elif tom_nook_choice == "scissors":
-		if visitor_choice == "paper":
+	elif tom_nook_choice == "scissors island":
+		if visitor_choice == "paper island":
 			print("you lose a bell!")
 			visitor_bells-= 1
 		else:
-			print("you do not lose a bell!")
+			print("You WIN! You do not lose a bell!")
 			tom_nook_bells-= 1 
 
 	if visitor_bells == 0:
