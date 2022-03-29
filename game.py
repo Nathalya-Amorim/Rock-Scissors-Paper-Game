@@ -1,6 +1,6 @@
 #Import packages to extend Python (just like we extend Sublime, Atom or VSCode)
 from random import randint
-from gameComponents import gameVars
+from gameComponents import gameVars, winLose
 # [] => this is an array
 # name = [ value1, value2, value3]
 # An array is a special type of container that can hold multiple items
@@ -11,28 +11,7 @@ from gameComponents import gameVars
 #essentially, booleans are equivalent to an on or off switch. 1 or 0.
 
 
-#define a win or lose function
-def winorlose(status):
-	#version1 of function
-	#print("Inside winorlose function; status is: ",status)
-	print("You",status,"! Would like to play again?")
-	choice = input("Y / N? ")
 
-	if choice == "N" or choice == "n":
-		print("You chose to quit! Better luck next time")
-		exit()
-	elif choice == "Y" or choice == "y":
-		#reset the player lives and computer lives
-		#and reset player choice to False, so our loop restarts
-		global player_lives
-		global computer_lives
-		global total_lives
-		gameVars.player_lives = gameVars.total_lives
-		gameVars.computer_lives = gameVars.total_lives
-	else:
-	    print("Make a valid choice - Y or N")
-	    #this might generate a bug that we need to fix later
-	    choice = input("Y / N? ")
 
 #player_choice == False
 while gameVars.player_choice is False: # = True
@@ -91,16 +70,15 @@ while gameVars.player_choice is False: # = True
 			gameVars.computer_lives-= 1 
 
 	if gameVars.player_lives == 0:
-		winorlose("lose")
+		winLose.winorlose("lose")
 	  
 	if gameVars.computer_lives == 0:
-		winorlose("won")
+		winLose.winorlose("won")
 
 	print("Player lives:", gameVars.player_lives)
 	print("Computer lives:", gameVars.computer_lives)
 
-	# map the loop keep running, by setting player_choice back to False
-	# uset, so that our loop condition will evaluate to True
+
 	gameVars.player_choice = False
 
 
